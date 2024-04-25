@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geräteliste</title>
+</head>
+<body>
+    <h1>Registrierte Geräte</h1>
+    <table>
+        <tr>
+            <th>Seriennummer</th>
+            <th>MAC-Adresse</th>
+            <th>Gerätetyp</th>
+            <th>Kaufdatum</th>
+            <th>Status</th>
+            <th>Zustand</th>
+            <th>Kommentare</th>
+        </tr>
+        {% for device in devices %}
+        <tr>
+            <td>{{ device.serial_number }}</td>
+            <td>{{ device.mac_address }}</td>
+            <td>{{ device.device_type }}</td>
+            <td>{{ device.purchase_date }}</td>
+            <td>{{ device.status }}</td>
+            <td>{{ device.condition }}</td>
+            <td>{{ device.comments }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'device-create' %}">Neues Gerät hinzufügen</a>
+</body>
+</html>
